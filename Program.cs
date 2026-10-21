@@ -73,6 +73,31 @@ namespace TjuvOchPolis2
                     {
                         skärm.Bytsida(-1);
                     }
+
+                    if (!kör)
+                    {
+                        break;
+                    }
+
+                    if (!skärm.FinnsPlats(inventory))
+                    {
+                        Thread.Sleep(100);
+                        continue;   
+                    }
+
+                    stad.Prison.Frigefångar(stad, slump);
+
+                    if (DateTime.Now >= pausTill)
+                    {
+                        int antalFöre = stad.Händelser.Count;
+                        stad.FlyttaAlla(slump);
+                        stad.KontrolleraMöten(slump);
+
+                        if (stad.Händelser.Count > antalFöre)
+                        {
+                            pausTill = DateTime.Now.AddSeconds(2);
+                        }
+                    }
                 }
                     
             }
