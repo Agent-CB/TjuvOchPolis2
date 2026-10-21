@@ -1,4 +1,6 @@
-﻿namespace TjuvOchPolis2
+﻿using System.Drawing;
+
+namespace TjuvOchPolis2
 {
     internal class Program
     {
@@ -29,6 +31,51 @@
 
             Console.Clear();
             Console.CursorVisible = false;
+
+
+            while (kör)
+            {
+                if (Console.KeyAvailable)
+                {
+                    ConsoleKey tangent = Console.ReadKey(true).Key;
+
+                    if (tangent == ConsoleKey.Escape)
+                    {
+                        kör = false;
+                    }
+
+                    if (tangent == ConsoleKey.C)
+                    {
+                        stad.LäggTillCitizen(slump);
+                    }
+
+                    if (tangent == ConsoleKey.T)
+                    {
+                        stad.LäggTillThief(slump);
+                    }
+
+                    if (tangent == ConsoleKey.P)
+                    {
+                        stad.LäggTillPolice(slump);
+                    }
+
+                    if (tangent == ConsoleKey.I)
+                    {
+                        inventory = !inventory;
+                    }
+
+                    if (inventory && tangent == ConsoleKey.RightArrow)
+                    {
+                        skärm.BytSida(1);
+                    }
+
+                    if (inventory && tangent == ConsoleKey.LeftArrow)
+                    {
+                        skärm.Bytsida(-1);
+                    }
+                }
+                    
+            }
         }
     }
 }
