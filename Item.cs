@@ -6,5 +6,11 @@ namespace TjuvOchPolis2
 {
     internal class Item
     {
+        public string Namn { get; set; }
+
+        public Item(string namn)
+        {
+            Namn = namn;
+        }
     }
 }
