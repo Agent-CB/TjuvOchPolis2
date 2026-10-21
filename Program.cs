@@ -99,8 +99,16 @@ namespace TjuvOchPolis2
                         }
                     }
                 }
-                    
+
+                 skärm.Rita(inventory);
+                Thread.Sleep(100);
             }
+
+            Console.ResetColor();
+            Console.CursorVisible = true;
+            Console.Clear();
+            File.WriteAllLines("Händelser.txt", stad.Händelser.ToArray());
+            Console.WriteLine("Händelserna sparades i händelser.txt");
         }
     }
 }
