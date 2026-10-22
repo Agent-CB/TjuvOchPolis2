@@ -84,5 +84,27 @@ namespace TjuvOchPolis2
                 Console.Write(person.Symbol);
             }
         }
+
+        public bool FinnsPlats(bool inventory)
+        {
+            int höjd = 66;
+
+            if (inventory)
+            {
+                höjd = 20;
+            }
+
+            if (Console.WindowWidth >= 100 && Console.WindowHeight >= höjd)
+            {
+                return true;
+            }
+
+            Console.Clear();
+            rad = 0;
+
+            SkrivRad("Fönstret är för litet. Vänligen förstora fönstret.");
+            
+            return false;
+        }
     }
 }
