@@ -15,6 +15,9 @@ namespace TjuvOchPolis2
             this.stad = stad;
         }
 
+
+
+
         private void SkrivRad(string text)
         {
             int bredd = Console.WindowWidth - 1;
@@ -33,12 +36,18 @@ namespace TjuvOchPolis2
             rad++;
         }
 
+
+
+
         private void SkrivRubrik(string text)
         {
             string rubrik = "= " + text + " ";
 
             SkrivRad(rubrik + new string('=', 102 - rubrik.Length));
         }
+
+
+
 
         private void RitaPlats(Place plats)
         {
@@ -85,6 +94,9 @@ namespace TjuvOchPolis2
             }
         }
 
+
+
+
         public bool FinnsPlats(bool inventory)
         {
             int höjd = 66;
@@ -106,6 +118,9 @@ namespace TjuvOchPolis2
             
             return false;
         }
+
+
+
 
         public void BytSida(int steg)
         {
