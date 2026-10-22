@@ -32,5 +32,12 @@ namespace TjuvOchPolis2
             }
             rad++;
         }
+
+        private void SkrivRubrik(string text)
+        {
+            string rubrik = "= " + text + " ";
+
+            SkrivRad(rubrik + new string('=', 102 - rubrik.Length));
+        }
     }
 }
