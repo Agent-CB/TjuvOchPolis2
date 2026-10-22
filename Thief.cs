@@ -18,4 +18,4 @@ namespace TjuvOchPolis
         }
     }
 }
-ej klar ej klark
+//ej klar ej klark
