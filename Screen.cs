@@ -106,5 +106,31 @@ namespace TjuvOchPolis2
             
             return false;
         }
+
+        public void BytSida(int steg)
+        {
+            int perSida = Console.WindowHeight - 16;
+
+            if (perSida <= 0)
+            {
+                return;
+            }
+
+            sida = sida + steg;
+
+            if (sida < 0)
+            {
+                sida = 0;
+            }
+
+            int sistaSida = (stad.Personer.Count - 1) / perSida;
+
+            if (sida > sistaSida)
+            {
+                sida = sistaSida;
+            }
+        }
+
+
     }
 }
