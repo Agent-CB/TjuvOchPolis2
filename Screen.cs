@@ -54,7 +54,18 @@ namespace TjuvOchPolis2
 
             foreach (Person person in stad.personer)
             {
+                if (person.Plats != plats)
+                {
+                    continue;
+                }
 
+                if (person.X + 1 >= Console.WindowWidth || förstaRad + person.Y >= Console.WindowHeight)
+                {
+                    continue;
+                }
+
+                Console.SetCursorPosition(person.X + 1, förstaRad + person.Y);
+                
             }
         }
     }
