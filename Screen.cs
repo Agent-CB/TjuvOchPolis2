@@ -47,7 +47,7 @@ namespace TjuvOchPolis2
 
             for (int y = 0; y < plats.Höjd; y++)
             {
-                SkrivRad("X" + new string(' ', plats.bredd) + "X");
+                SkrivRad("X" + new string(' ', plats.Bredd) + "X");
             }
 
             SkrivRad(new string('=', plats.Bredd + 2));
