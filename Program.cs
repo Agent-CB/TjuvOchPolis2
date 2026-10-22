@@ -84,7 +84,7 @@ namespace TjuvOchPolis2
 
                     if (inventory && tangent == ConsoleKey.LeftArrow)
                     {
-                        skärm.Bytsida(-1);
+                        skärm.BytSida(-1);
                     }
 
                     if (!kör)
