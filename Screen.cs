@@ -39,5 +39,23 @@ namespace TjuvOchPolis2
 
             SkrivRad(rubrik + new string('=', 102 - rubrik.Length));
         }
+
+        private void RitaPlats(Place plats)
+        {
+            SkrivRubrik(plats.Namn);
+            int förstaRad = rad;
+
+            for (int y = 0; y < plats.Höjd; y++)
+            {
+                SkrivRad("X" + new string(' ', plats.bredd) + "X");
+            }
+
+            SkrivRad(new string('=', plats.Bredd + 2));
+
+            foreach (Person person in stad.personer)
+            {
+
+            }
+        }
     }
 }
