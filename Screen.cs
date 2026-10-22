@@ -66,6 +66,22 @@ namespace TjuvOchPolis2
 
                 Console.SetCursorPosition(person.X + 1, förstaRad + person.Y);
                 
+                if (person.Symbol == 'C')
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                }
+
+                if (person.Symbol == 'T')
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                }
+
+                if (person.Symbol == 'P')
+                {
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                }
+
+                Console.Write(person.Symbol);
             }
         }
     }
