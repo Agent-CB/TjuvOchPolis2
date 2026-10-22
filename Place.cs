@@ -2,17 +2,22 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace TjuvOchPolis
+
+namespace TjuvOchPolis2
 {
-    class Place
+    public class Place
     {
-        public int Bredd;
-        public int Höjd;
-        
-        public Place(int bredd, int höjd)
+        public string Namn { get; set; }
+        public int Bredd { get; set; }
+        public int Höjd { get; set; }
+        public bool HarVägg { get; set; }
+
+        public Place(string namn, int bredd, int höjd, bool harVägg)
         {
+            Namn = namn;
             Bredd = bredd;
             Höjd = höjd;
+            HarVägg = harVägg;
         }
     }
 }
