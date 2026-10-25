@@ -203,9 +203,34 @@ namespace TjuvOchPolis2
 
             SkrivRad("Police: " + stad.RäknaTyp('P') + " | Rånade: " + stad.AntalRånade + " | Fripanden: " + stad.AntalGripanden);
 
-            
-        }
-        
-            
+            SkrivRubrik("NEWS FEED");
+
+            for (int i = 0; i < 8; i++)
+            {
+                int index = stad.Händelser.Count - 1 - i;
+                string text = "";
+
+                if (index >= 0)
+                {
+                    text = (index + 1) + ": " + stad.Händelser[index];
+                }
+
+                SkrivRad(text);
+            }
+
+            if (inventory)
+            {
+                SkrivRad("Vänster/Höger: byt sida | I: Karta | Esc: Avsluta");
+            }
+            else
+            {
+                SkrivRad("C: Citizen | T: Thief | P: Police | I: Visa inventory | Esc: Avsluta");
+            }
+
+            while (rad < Console.WindowHeight)
+            {
+                SkrivRad("");
+            }
+        }    
     }
 }
