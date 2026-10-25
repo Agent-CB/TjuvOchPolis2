@@ -187,9 +187,23 @@ namespace TjuvOchPolis2
 
                     SkrivRad(text);
                 }
-
-
             }
+            else
+            {
+                RitaPlats(stad);
+                RitaPlats(stad.Prison);
+                RitaPlats(stad.PoorHouse);
+            }
+
+            SkrivRubrik("STATUS");
+
+            SkrivRad("Thief in City: " + stad.RäknaTyp('T') + " | In Prison " + stad.RäknaPåPlats(stad.Prison));
+
+            SkrivRad("Citizen in City: " + stad.RäknaTyp('C') + " | In PoorHouse: " + stad.RäknaPåPlats(stad.PoorHouse));
+
+            SkrivRad("Police: " + stad.RäknaTyp('P') + " | Rånade: " + stad.AntalRånade + " | Fripanden: " + stad.AntalGripanden);
+
+            
         }
         
             
