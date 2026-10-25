@@ -164,6 +164,31 @@ namespace TjuvOchPolis2
                 {
                     sida = antalSidor - 1;
                 }
+
+                SkrivRubrik("Inventory - sida " + (sida + 1) + " av " + antalSidor);
+
+                int start = sida  * perSida;
+                int slut = start + perSida;
+
+                if (slut > stad.Personer.Count)
+                {
+                    slut = stad.Personer.Count;
+                }
+
+                for (int i = start; i < slut; i++)
+                {
+                    Person person = stad.Personer[i];
+                    string text = person.Namn + " | " + person.Plats.Namn + " | ";
+
+                    foreach (Item sak in person.Inventory)
+                    {
+                        text = text + sak.Namn + " ";
+                    }
+
+                    SkrivRad(text);
+                }
+
+
             }
         }
         
