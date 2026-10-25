@@ -146,6 +146,27 @@ namespace TjuvOchPolis2
             }
         }
 
+        public void Rita(bool inventory)
+        {
+            rad = 0;
 
+            if (inventory)
+            {
+                int perSida = Console.WindowHeight - 16;
+                int antalSidor = (stad.Personer.Count + perSida - 1) / perSida;
+
+                if (antalSidor == 0)
+                {
+                    antalSidor = 1;
+                }
+
+                if (sida >= antalSidor)
+                {
+                    sida = antalSidor - 1;
+                }
+            }
+        }
+        
+            
     }
 }
