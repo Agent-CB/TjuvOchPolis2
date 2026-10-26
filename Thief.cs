@@ -18,20 +18,20 @@ namespace TjuvOchPolis
             Symbol = 'T';
         }
 
-<<<<<<< HEAD
+
         // Låter tjuven råna en medborgare.
         public string Råna(Citizen citizen, Random slump)
-=======
+
         //Låter tjuven råna en medborgare
         public string Rana(Citizen citizen, Random slumo)
->>>>>>> c7b14fe471e1809fb9e16f6a13d7843cf34168ba
+
         {
             // Kontrollera om medborgaren har några saker kvar.
             if (citizen.Inventory.Count == 0)
             {
                 return "";
             }
-<<<<<<< HEAD
+
 
             // Välj ett slumpmässigt föremål från medborgarens lista.
             int index = slump.Next(citizen.Inventory.Count);
@@ -49,8 +49,7 @@ namespace TjuvOchPolis
             // Returnera ett meddelande om rånet.
             return Namn + " rånar " + citizen.Namn
                 + " och tar " + sak.Namn + ".";
-=======
->>>>>>> c7b14fe471e1809fb9e16f6a13d7843cf34168ba
+
         }
     }
 }
