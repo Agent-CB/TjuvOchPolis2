@@ -62,7 +62,7 @@ namespace TjuvOchPolis2
 
             SkrivRad(new string('=', plats.Bredd + 2));
 
-            foreach (Person person in stad.personer)
+            foreach (Person person in stad.Personer)
             {
                 // Hoppar över personer som inte är på den aktuella platsen.
                 if (person.Plats != plats)
