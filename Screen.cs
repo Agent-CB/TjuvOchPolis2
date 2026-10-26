@@ -17,7 +17,7 @@ namespace TjuvOchPolis2
 
 
 
-
+        // Skriver text på en aktuell rad och kortar texten om den är för lång.
         private void SkrivRad(string text)
         {
             int bredd = Console.WindowWidth - 1;
@@ -31,6 +31,7 @@ namespace TjuvOchPolis2
 
                 Console.SetCursorPosition(0, rad);
                 Console.ResetColor();
+                // Fyller ut med mellanslag så att gammal text försvinner.
                 Console.Write(text.PadRight(bredd));
             }
             rad++;
@@ -38,7 +39,7 @@ namespace TjuvOchPolis2
 
 
 
-
+        // Skriver en rubrik och fyller ut raden med likahetstecknet.
         private void SkrivRubrik(string text)
         {
             string rubrik = "= " + text + " ";
@@ -48,7 +49,7 @@ namespace TjuvOchPolis2
 
 
 
-
+        // Ritar platsens kanter och personerna som finns där. Personerna ritas med sin symbol och färg beroende på typ.
         private void RitaPlats(Place plats)
         {
             SkrivRubrik(plats.Namn);
@@ -63,6 +64,7 @@ namespace TjuvOchPolis2
 
             foreach (Person person in stad.personer)
             {
+                // Hoppar över personer som inte är på den aktuella platsen.
                 if (person.Plats != plats)
                 {
                     continue;
@@ -75,6 +77,7 @@ namespace TjuvOchPolis2
 
                 Console.SetCursorPosition(person.X + 1, förstaRad + person.Y);
                 
+                // Citizen visas gröna, Thief visas röda och Police visas blåa.
                 if (person.Symbol == 'C')
                 {
                     Console.ForegroundColor = ConsoleColor.Green;
@@ -96,7 +99,7 @@ namespace TjuvOchPolis2
 
 
 
-
+        // Kontrollerar fönstrets storlek och visar ett meddelande om det är för litet.
         public bool FinnsPlats(bool inventory)
         {
             int höjd = 66;
@@ -121,7 +124,7 @@ namespace TjuvOchPolis2
 
 
 
-
+        // Byter sida i inventory och håller sidrummet inom gränserna.
         public void BytSida(int steg)
         {
             int perSida = Console.WindowHeight - 16;
@@ -145,13 +148,14 @@ namespace TjuvOchPolis2
                 sida = sistaSida;
             }
         }
-
+        // Ritar om innehållet från översta raden.
         public void Rita(bool inventory)
         {
             rad = 0;
 
             if (inventory)
             {
+                // Räknar hur många personer som får plats per sida och hur många sidor som behövs.
                 int perSida = Console.WindowHeight - 16;
                 int antalSidor = (stad.Personer.Count + perSida - 1) / perSida;
 
@@ -167,6 +171,7 @@ namespace TjuvOchPolis2
 
                 SkrivRubrik("Inventory - sida " + (sida + 1) + " av " + antalSidor);
 
+                // Bestämmer vilka personer som ska visas på den valda sidan.
                 int start = sida  * perSida;
                 int slut = start + perSida;
 
@@ -175,6 +180,7 @@ namespace TjuvOchPolis2
                     slut = stad.Personer.Count;
                 }
 
+                // Skriver personernas namn, plats och saker.
                 for (int i = start; i < slut; i++)
                 {
                     Person person = stad.Personer[i];
@@ -190,11 +196,13 @@ namespace TjuvOchPolis2
             }
             else
             {
+                // Visar City, Prison och PoorHouse när inventory är stängt
                 RitaPlats(stad);
                 RitaPlats(stad.Prison);
                 RitaPlats(stad.PoorHouse);
             }
 
+            // Visar antal personer samt antal rånade och gripanden
             SkrivRubrik("STATUS");
 
             SkrivRad("Thief in City: " + stad.RäknaTyp('T') + " | In Prison " + stad.RäknaPåPlats(stad.Prison));
@@ -217,7 +225,7 @@ namespace TjuvOchPolis2
 
                 SkrivRad(text);
             }
-
+            // Visar vilka tangenter man ska använda i den aktuella vyn.
             if (inventory)
             {
                 SkrivRad("Vänster/Höger: byt sida | I: Karta | Esc: Avsluta");
@@ -226,7 +234,9 @@ namespace TjuvOchPolis2
             {
                 SkrivRad("C: Citizen | T: Thief | P: Police | I: Visa inventory | Esc: Avsluta");
             }
+            
 
+            // Tar bort gammal text från rader som inte längre används.
             while (rad < Console.WindowHeight)
             {
                 SkrivRad("");
