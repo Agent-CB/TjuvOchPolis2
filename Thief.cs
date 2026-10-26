@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Numerics;
-using TjuvOchPolis2;
 
 namespace TjuvOchPolis
 {
@@ -15,6 +14,14 @@ namespace TjuvOchPolis
             : base(namn, plats, slump)
         {
 
+        //Låter tjuven råna en medborgare
+        public string Rana(Citizen citizen, Random slumo)
+        {
+            // Kontrollera om medborgaren har några saker kvar.
+            if (citizen.Inventory.Count == 0)
+            {
+                return "";
+            }
         }
     }
 }
