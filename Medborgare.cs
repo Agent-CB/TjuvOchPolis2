@@ -10,7 +10,7 @@ namespace TjuvOchPolis
     public class Medborgare : Person
     {
         // Håller reda på om medborgaren har blivit rånad.
-        public bool HarBlivitRanad { get; set; }
+        public bool HarBlivitRånad { get; set; }
 
         // Skapar en ny medborgare.
         public Medborgare(string namn, Place plats, Random slump)
