@@ -148,6 +148,11 @@ namespace TjuvOchPolis2
                 sida = sistaSida;
             }
         }
+
+
+
+
+
         // Ritar om innehållet från översta raden.
         public void Rita(bool inventory)
         {
