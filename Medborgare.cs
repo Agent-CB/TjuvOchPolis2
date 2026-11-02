@@ -4,7 +4,7 @@ using System.Numerics;
 using System.Text;
 using TjuvOchPolis2;
 
-namespace TjuvOchPolis
+namespace TjuvOchPolis2
 {
     // Klassen beskriver en medborgare i staden.
     public class Medborgare : Person
