@@ -14,7 +14,7 @@ namespace TjuvOchPolis2
         public int RiktningX { get; set; }
         public int RiktningY { get; set; }
         public Place Plats { get; set; }
-        public List<Item> Inventory { get; set; }
+        internal List<Item> Inventory { get; set; }
 
         // Skapar en person med namn och plats.
         public Person(string namn, Place plats, Random slump)
