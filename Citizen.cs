@@ -24,7 +24,7 @@ namespace TjuvOchPolis2
             Inventory.Add(new Item("Mobil"));
             Inventory.Add(new Item("Pengar"));
             Inventory.Add(new Item("Klocka"));
-            Inventory.Add(new Item("Oskuld"));
+            
             
         }
     }
