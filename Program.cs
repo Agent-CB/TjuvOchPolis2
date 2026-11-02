@@ -86,7 +86,7 @@ namespace TjuvOchPolis2
                     {
                         skärm.BytSida(-1);
                     }
-
+                }
                     if (!kör)
                     {
                         break;
@@ -113,7 +113,7 @@ namespace TjuvOchPolis2
                             pausTill = DateTime.Now.AddSeconds(2);
                         }
                     }
-                }
+                
                 // Ritar om skärmen och väntar en liten stund.
                  skärm.Rita(inventory);
                 Thread.Sleep(100);
