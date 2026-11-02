@@ -2,7 +2,7 @@
 using System.Linq.Expressions;
 using System.Numerics;
 
-namespace TjuvOchPolis
+namespace TjuvOchPolis2
 {
     // Klassen beskriver en tjuv.
     public class Thief : Person
