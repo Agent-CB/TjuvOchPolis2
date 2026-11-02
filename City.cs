@@ -13,7 +13,6 @@ namespace TjuvOchPolis2
         public int AntalRånade { get; set; }
         public int AntalGripanden { get; set; }
 
-.
         private List<Medborgare> rånadeMedborgare = new List<Medborgare>();
 
         public City() : base("City", 100, 25, false)
