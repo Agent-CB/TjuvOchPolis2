@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using TjuvOchPolis2;
 
-namespace TjuvOchPolis
+namespace TjuvOchPolis2
 {
     // Klassen beskriver en polis.
     public class Police : Person
