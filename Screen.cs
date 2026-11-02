@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Numerics;
 using System.Text;
 
 namespace TjuvOchPolis2
@@ -62,7 +63,7 @@ namespace TjuvOchPolis2
 
             SkrivRad(new string('=', plats.Bredd + 2));
 
-            foreach (Person person in stad.personer)
+            foreach (Person person in stad.Personer)
             {
                 // Hoppar över personer som inte är på den aktuella platsen.
                 if (person.Plats != plats)
@@ -76,7 +77,7 @@ namespace TjuvOchPolis2
                 }
 
                 Console.SetCursorPosition(person.X + 1, förstaRad + person.Y);
-                
+
                 // Citizen visas gröna, Thief visas röda och Police visas blåa.
                 Console.ResetColor();
                 if (person.Symbol == 'C')
@@ -119,7 +120,7 @@ namespace TjuvOchPolis2
             rad = 0;
 
             SkrivRad("Fönstret är för litet. Vänligen förstora fönstret.");
-            
+
             return false;
         }
 
@@ -178,7 +179,7 @@ namespace TjuvOchPolis2
                 SkrivRubrik("Inventory - sida " + (sida + 1) + " av " + antalSidor);
 
                 // Bestämmer vilka personer som ska visas på den valda sidan.
-                int start = sida  * perSida;
+                int start = sida * perSida;
                 int slut = start + perSida;
 
                 if (slut > stad.Personer.Count)
@@ -240,13 +241,13 @@ namespace TjuvOchPolis2
             {
                 SkrivRad("C: Citizen | T: Thief | P: Police | I: Visa inventory | Esc: Avsluta");
             }
-            
+
 
             // Tar bort gammal text från rader som inte längre används.
             while (rad < Console.WindowHeight)
             {
                 SkrivRad("");
             }
-        }    
+        }
     }
 }
