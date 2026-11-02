@@ -17,7 +17,7 @@ namespace TjuvOchPolis2
             : base(namn, plats, slump)
         {
             // Medborgaren visas med bokstaven M i staden.
-            Symbol = 'M';
+            Symbol = 'C';
 
             // Alla medborgare börjar med fyra saker.
             Inventory.Add(new Item("Nycklar"));
