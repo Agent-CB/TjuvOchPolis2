@@ -7,7 +7,7 @@ using TjuvOchPolis2;
 namespace TjuvOchPolis2
 {
     // Klassen beskriver en medborgare i staden.
-    public class Medborgare : Person
+    public class Citizen : Person
     {
         // Håller reda på om medborgaren har blivit rånad.
         public bool HarBlivitRånad { get; set; }
