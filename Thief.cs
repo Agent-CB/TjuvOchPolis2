@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Linq.Expressions;
 using System.Numerics;
-using TjuvOchPolis2;
 
-namespace TjuvOchPolis
+namespace TjuvOchPolis2
 {
     // Klassen beskriver en tjuv.
     public class Thief : Person
@@ -19,14 +18,34 @@ namespace TjuvOchPolis
             Symbol = 'T';
         }
 
+
         //Låter tjuven råna en medborgare
-        public string Rana(Citizen citizen, Random slumo)
+        public string Råna(Citizen citizen, Random slump)
+
         {
             // Kontrollera om medborgaren har några saker kvar.
             if (citizen.Inventory.Count == 0)
             {
                 return "";
             }
+
+            // Välj ett slumpmässigt föremål från medborgarens lista.
+            int index = slump.Next(citizen.Inventory.Count);
+            Item sak = citizen.Inventory[index];
+
+            // Ta bort föremålet från medborgarens lista.
+            citizen.Inventory.RemoveAt(index);
+
+            // Lägg det stulna föremålet i tjuvens lista.
+            Inventory.Add(sak);
+
+            // Markera att medborgaren har blivit rånad.
+            citizen.HarBlivitRånad = true;
+
+            // Returnera ett meddelande om rånet.
+            return Namn + " rånar " + citizen.Namn
+                + " och tar " + sak.Namn + ".";
+
         }
     }
 }
