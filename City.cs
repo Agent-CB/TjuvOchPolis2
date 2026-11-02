@@ -13,7 +13,7 @@ namespace TjuvOchPolis2
         public int AntalRånade { get; set; }
         public int AntalGripanden { get; set; }
 
-        private List<Medborgare> rånadeMedborgare = new List<Medborgare>();
+        private List<Citizen> rånadeCitizens = new List<Citizen>();
 
         public City() : base("City", 100, 25, false)
         {
@@ -26,9 +26,9 @@ namespace TjuvOchPolis2
         // Lägga till personer
         public void LäggTillCitizen(Random slump)
         {
-            Medborgare medborgare = new Medborgare("Medborgare " + (Personer.Count + 1), this, slump);
-            Personer.Add(medborgare);
-            Händelser.Add(medborgare.Namn + " flyttar in i staden.");
+            Citizen citizen = new Citizen("Medborgare " + (Personer.Count + 1), this, slump);
+            Personer.Add(citizen);
+            Händelser.Add(citizen.Namn + " flyttar in i staden.");
         }
 
         public void LäggTillThief(Random slump)
@@ -93,12 +93,12 @@ namespace TjuvOchPolis2
             foreach (Person första in Personer)
             {
                 foreach (Person andra in Personer)
-                {                  
+                {
                     if (första.Plats != this || andra.Plats != this)
                     {
                         continue;
                     }
-                    
+
                     if (första.X != andra.X || första.Y != andra.Y)
                     {
                         continue;
@@ -112,15 +112,15 @@ namespace TjuvOchPolis2
                         Gripa(police, thief, slump);
                     }
 
-                    // Tjuv möter medborgare
-                    if (första is Thief && andra is Medborgare)
+                    // Tjuv möter Citizen
+                    if (första is Thief && andra is Citizen)
                     {
                         Thief thief = (Thief)första;
-                        Medborgare medborgare = (Medborgare)andra;
-                        Råna(thief, medborgare, slump);
+                        Citizen citizen = (Citizen)andra;
+                        Råna(thief, citizen, slump);
                     }
 
-                    
+
                 }
             }
         }
@@ -151,32 +151,32 @@ namespace TjuvOchPolis2
             Händelser.Add(police.Namn + " griper " + thief.Namn + ". Straff: " + (antal * 10) + " sekunder.");
         }
 
-        // Tjuven tar en slumpad sak av medborgaren
-        private void Råna(Thief thief, Medborgare medborgare, Random slump)
+        // Tjuven tar en slumpad sak av en Citizen
+        private void Råna(Thief thief, Citizen citizen, Random slump)
         {
-            if (medborgare.Inventory.Count == 0)
+            if (citizen.Inventory.Count == 0)
             {
                 return;
             }
 
-            int index = slump.Next(medborgare.Inventory.Count);
-            Item sak = medborgare.Inventory[index];
-            medborgare.Inventory.RemoveAt(index);
+            int index = slump.Next(citizen.Inventory.Count);
+            Item sak = citizen.Inventory[index];
+            citizen.Inventory.RemoveAt(index);
             thief.Inventory.Add(sak);
 
-            if (!rånadeMedborgare.Contains(medborgare))
+            if (!rånadeCitizens.Contains(citizen))
             {
-                rånadeMedborgare.Add(medborgare);
+                rånadeCitizens.Add(citizen);
                 AntalRånade++;
             }
 
-            Händelser.Add(thief.Namn + " rånar " + medborgare.Namn + " och tar " + sak.Namn + ".");
+            Händelser.Add(thief.Namn + " rånar " + citizen.Namn + " och tar " + sak.Namn + ".");
 
-            // Om medborgare har slut på saker, åker in i fattighuset.
-            if (medborgare.Inventory.Count == 0)
+            // Om Citizen har slut på saker, åker in i fattighuset.
+            if (citizen.Inventory.Count == 0)
             {
-                medborgare.BytPlats(PoorHouse, slump);
-                Händelser.Add(medborgare.Namn + " flyttar till fattighuset.");
+                citizen.BytPlats(PoorHouse, slump);
+                Händelser.Add(citizen.Namn + " flyttar till fattighuset.");
             }
         }
     }
