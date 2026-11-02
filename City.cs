@@ -14,6 +14,23 @@ namespace TjuvOchPolis2
         public int AntalGripanden { get; set; }
 
         private List<Citizen> rånadeCitizens = new List<Citizen>();
+        private List<string> ledigaNamn = new List<string>
+        {
+            "Anders", "Erik", "Johan", "Anna", "Maria",
+            "Emma", "Lucas", "Oscar", "Sara", "Lisa",
+            "Anton", "William", "Oliver", "Elsa", "Ella",
+            "Viktor", "Filip", "Maja", "Alma", "Hugo",
+            "Nils", "Axel", "Klara", "Sofia", "David",
+            "Liam", "Elias", "Ebba", "Wilma", "Simon",
+            "Agnes", "Emil", "Felix", "Julia", "Olivia",
+            "Theo", "Isak", "Linnea", "Elin", "Arvid"
+        };
+
+        private string HämtaNamn(Random slump)
+        {
+            int index = slump.Next(ledigaNamn.Count);
+            return ledigaNamn[index];
+        }
 
         public City() : base("City", 100, 25, false)
         {
@@ -26,21 +43,21 @@ namespace TjuvOchPolis2
         // Lägga till personer
         public void LäggTillCitizen(Random slump)
         {
-            Citizen citizen = new Citizen("Medborgare " + (Personer.Count + 1), this, slump);
+            Citizen citizen = new Citizen(HämtaNamn(slump), this, slump);
             Personer.Add(citizen);
             Händelser.Add(citizen.Namn + " flyttar in i staden.");
         }
 
         public void LäggTillThief(Random slump)
         {
-            Thief thief = new Thief("Tjuv " + (Personer.Count + 1), this, slump);
+            Thief thief = new Thief(HämtaNamn(slump), this, slump);
             Personer.Add(thief);
             Händelser.Add(thief.Namn + " flyttar in i staden.");
         }
 
         public void LäggTillPolice(Random slump)
         {
-            Police police = new Police("Polis " + (Personer.Count + 1), this, slump);
+            Police police = new Police(HämtaNamn(slump), this, slump);
             Personer.Add(police);
             Händelser.Add(police.Namn + " flyttar in i staden.");
         }
