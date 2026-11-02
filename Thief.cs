@@ -20,7 +20,7 @@ namespace TjuvOchPolis2
 
 
         //Låter tjuven råna en medborgare
-        public string Rana(Medborgare citizen, Random slumo)
+        public string Rana(Medborgare citizen, Random slump)
 
         {
             // Kontrollera om medborgaren har några saker kvar.
