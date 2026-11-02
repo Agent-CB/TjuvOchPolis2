@@ -78,6 +78,7 @@ namespace TjuvOchPolis2
                 Console.SetCursorPosition(person.X + 1, förstaRad + person.Y);
                 
                 // Citizen visas gröna, Thief visas röda och Police visas blåa.
+                Console.ResetColor();
                 if (person.Symbol == 'C')
                 {
                     Console.ForegroundColor = ConsoleColor.Green;
@@ -214,7 +215,7 @@ namespace TjuvOchPolis2
 
             SkrivRad("Citizen in City: " + stad.RäknaTyp('C') + " | In PoorHouse: " + stad.RäknaPåPlats(stad.PoorHouse));
 
-            SkrivRad("Police: " + stad.RäknaTyp('P') + " | Rånade: " + stad.AntalRånade + " | Fripanden: " + stad.AntalGripanden);
+            SkrivRad("Police: " + stad.RäknaTyp('P') + " | Rånade: " + stad.AntalRånade + " | Gripanden: " + stad.AntalGripanden);
 
             SkrivRubrik("NEWS FEED");
 
