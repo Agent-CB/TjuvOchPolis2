@@ -43,21 +43,21 @@ namespace TjuvOchPolis2
         // Lägga till personer
         public void LäggTillCitizen(Random slump)
         {
-            Citizen citizen = new Citizen(HämtaNamn(slump), this, slump);
+            Citizen citizen = new Citizen("Medborgaren " + HämtaNamn(slump), this, slump);
             Personer.Add(citizen);
             Händelser.Add(citizen.Namn + " flyttar in i staden.");
         }
 
         public void LäggTillThief(Random slump)
         {
-            Thief thief = new Thief(HämtaNamn(slump), this, slump);
+            Thief thief = new Thief("Tjuven " + HämtaNamn(slump), this, slump);
             Personer.Add(thief);
             Händelser.Add(thief.Namn + " flyttar in i staden.");
         }
 
         public void LäggTillPolice(Random slump)
         {
-            Police police = new Police(HämtaNamn(slump), this, slump);
+            Police police = new Police("Polisen " + HämtaNamn(slump), this, slump);
             Personer.Add(police);
             Händelser.Add(police.Namn + " flyttar in i staden.");
         }
